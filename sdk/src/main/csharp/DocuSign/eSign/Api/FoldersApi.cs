@@ -55,27 +55,28 @@ namespace DocuSign.eSign.Api
 	    ///<param name="accountId">The external account number (int) or account ID Guid.</param>
 		/// <returns>4Task of ApiResponse (FoldersResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<FoldersResponse>> ListAsyncWithHttpInfo (string accountId);
-        
+
+        ///  <summary>
+        ///  Gets a list of the envelopes in the specified folder.
+        ///  </summary>
+        ///  <remarks>
+        ///  Retrieves a list of the envelopes in the specified folder. You can narrow the query by specifying search criteria in the query string parameters.
+        ///  </remarks>
+        /// <param name="accountId">The external account number (int) or account ID Guid.</param><param name="folderId">The ID of the folder being accessed.</param>
+        /// <param name="searchOptions">Optional search options to return filtered collection of envelopes.</param>
+        /// <returns>1FolderItemsResponse</returns>
+        FolderItemsResponse ListItems (string accountId, string folderId, FoldersApi.SearchOptions searchOptions = null);
+
         /// <summary>
         /// Gets a list of the envelopes in the specified folder.
         /// </summary>
         /// <remarks>
         /// Retrieves a list of the envelopes in the specified folder. You can narrow the query by specifying search criteria in the query string parameters.
         /// </remarks>
-		
-	    ///<param name="accountId">The external account number (int) or account ID Guid.</param><param name="folderId">The ID of the folder being accessed.</param>
-		/// <returns>1FolderItemsResponse</returns>
-        FolderItemsResponse ListItems (string accountId, string folderId);
- 
-		/// <summary>
-        /// Gets a list of the envelopes in the specified folder.
-        /// </summary>
-        /// <remarks>
-        /// Retrieves a list of the envelopes in the specified folder. You can narrow the query by specifying search criteria in the query string parameters.
-        /// </remarks>
- 	    ///<param name="accountId">The external account number (int) or account ID Guid.</param><param name="folderId">The ID of the folder being accessed.</param>
-		/// <returns>2ApiResponse of FolderItemsResponse</returns>
-        ApiResponse<FolderItemsResponse> ListItemsWithHttpInfo (string accountId, string folderId);
+        ///<param name="accountId">The external account number (int) or account ID Guid.</param><param name="folderId">The ID of the folder being accessed.</param>
+        /// <param name="searchOptions">Optional search options to return filtered collection of envelopes.</param>
+        /// <returns>2ApiResponse of FolderItemsResponse</returns>
+        ApiResponse<FolderItemsResponse> ListItemsWithHttpInfo (string accountId, string folderId, FoldersApi.SearchOptions searchOptions = null);
 
         /// <summary>
         /// Gets a list of the envelopes in the specified folder.
@@ -84,8 +85,9 @@ namespace DocuSign.eSign.Api
         /// Retrieves a list of the envelopes in the specified folder. You can narrow the query by specifying search criteria in the query string parameters.
         /// </remarks>
 	    ///<param name="accountId">The external account number (int) or account ID Guid.</param><param name="folderId">The ID of the folder being accessed.</param>
-		/// <returns>3Task of FolderItemsResponse</returns>
-        System.Threading.Tasks.Task<FolderItemsResponse> ListItemsAsync (string accountId, string folderId);
+		/// <param name="searchOptions">Optional search options to return filtered collection of envelopes.</param>
+        /// <returns>3Task of FolderItemsResponse</returns>
+        System.Threading.Tasks.Task<FolderItemsResponse> ListItemsAsync (string accountId, string folderId, FoldersApi.SearchOptions searchOptions = null);
 
         /// <summary>
         /// Gets a list of the envelopes in the specified folder.
@@ -93,9 +95,10 @@ namespace DocuSign.eSign.Api
         /// <remarks>
         /// Retrieves a list of the envelopes in the specified folder. You can narrow the query by specifying search criteria in the query string parameters.
         /// </remarks>
-	    ///<param name="accountId">The external account number (int) or account ID Guid.</param><param name="folderId">The ID of the folder being accessed.</param>
-		/// <returns>4Task of ApiResponse (FolderItemsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FolderItemsResponse>> ListItemsAsyncWithHttpInfo (string accountId, string folderId);
+        ///<param name="accountId">The external account number (int) or account ID Guid.</param><param name="folderId">The ID of the folder being accessed.</param>
+        /// <param name="searchOptions">Optional search options to return filtered collection of envelopes.</param>
+        /// <returns>4Task of ApiResponse (FolderItemsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FolderItemsResponse>> ListItemsAsyncWithHttpInfo (string accountId, string folderId, FoldersApi.SearchOptions searchOptions = null);
         
         /// <summary>
         /// Moves an envelope from its current folder to the specified folder.
@@ -405,31 +408,33 @@ namespace DocuSign.eSign.Api
                 (FoldersResponse) Configuration.ApiClient.Deserialize(response, typeof(FoldersResponse)));
             
         }
-        
-		
-		
-		
 
-		
-		
-		
+
+
+
+
+
+
+
         /// <summary>
         /// Gets a list of the envelopes in the specified folder. Retrieves a list of the envelopes in the specified folder. You can narrow the query by specifying search criteria in the query string parameters.
         /// </summary>
- 	    ///<param name="accountId">The external account number (int) or account ID Guid.</param><param name="folderId">The ID of the folder being accessed.</param>
-		/// <returns>5FolderItemsResponse</returns>
-        public FolderItemsResponse ListItems (string accountId, string folderId)
+        ///<param name="accountId">The external account number (int) or account ID Guid.</param><param name="folderId">The ID of the folder being accessed.</param>
+        /// <param name="searchOptions">Optional search options to return filtered collection of envelopes.</param>
+        /// <returns>5FolderItemsResponse</returns>
+        public FolderItemsResponse ListItems (string accountId, string folderId, FoldersApi.SearchOptions searchOptions = null)
         {
-             ApiResponse<FolderItemsResponse> response = ListItemsWithHttpInfo(accountId, folderId);
+             ApiResponse<FolderItemsResponse> response = ListItemsWithHttpInfo(accountId, folderId, searchOptions);
              return response.Data;
         }
 
         /// <summary>
         /// Gets a list of the envelopes in the specified folder. Retrieves a list of the envelopes in the specified folder. You can narrow the query by specifying search criteria in the query string parameters.
         /// </summary>
- 	    ///<param name="accountId">The external account number (int) or account ID Guid.</param><param name="folderId">The ID of the folder being accessed.</param>
-		/// <returns>6ApiResponse of FolderItemsResponse</returns>
-        public ApiResponse< FolderItemsResponse > ListItemsWithHttpInfo (string accountId, string folderId)
+        ///<param name="accountId">The external account number (int) or account ID Guid.</param><param name="folderId">The ID of the folder being accessed.</param>
+		/// <param name="searchOptions">Optional search options to return filtered collection of envelopes.</param>
+        /// <returns>6ApiResponse of FolderItemsResponse</returns>
+        public ApiResponse< FolderItemsResponse > ListItemsWithHttpInfo (string accountId, string folderId, FoldersApi.SearchOptions searchOptions = null)
         {
             
             // verify the required parameter 'accountId' is set
@@ -461,16 +466,22 @@ namespace DocuSign.eSign.Api
             pathParams.Add("format", "json");
             if (accountId != null) pathParams.Add("accountId", Configuration.ApiClient.ParameterToString(accountId)); // path parameter
             if (folderId != null) pathParams.Add("folderId", Configuration.ApiClient.ParameterToString(folderId)); // path parameter
-            
-			
-			
 
-            
-            
-            
+            //based on https://www.docusign.com/p/RESTAPIGuide/RESTAPIGuide.htm#REST API References/Get Folder Envelope List.htm%3FTocPath%3DREST%2520API%2520References%7C_____97
+            if (searchOptions != null)
+            {
+                if (searchOptions.includeRecipients != null) queryParams.Add("include_recipients", Configuration.ApiClient.ParameterToString(searchOptions.includeRecipients)); // query parameter
+                if (searchOptions.all != null) queryParams.Add("all", Configuration.ApiClient.ParameterToString(searchOptions.all)); // query parameter
+                if (searchOptions.order != null) queryParams.Add("order", Configuration.ApiClient.ParameterToString(searchOptions.order)); // query parameter
+                if (searchOptions.count != null) queryParams.Add("count", Configuration.ApiClient.ParameterToString(searchOptions.count)); // query parameter
+                if (searchOptions.startPosition != null) queryParams.Add("start_position", Configuration.ApiClient.ParameterToString(searchOptions.startPosition)); // query parameter
+                if (searchOptions.fromDate != null) queryParams.Add("from_date", Configuration.ApiClient.ParameterToString(searchOptions.fromDate)); // query parameter
+                if (searchOptions.toDate != null) queryParams.Add("to_date", Configuration.ApiClient.ParameterToString(searchOptions.toDate)); // query parameter
+                if (searchOptions.orderBy != null) queryParams.Add("order_by", Configuration.ApiClient.ParameterToString(searchOptions.orderBy)); // query parameter
+                if (searchOptions.searchText != null) queryParams.Add("search_text", Configuration.ApiClient.ParameterToString(searchOptions.searchText)); // query parameter
+                if (searchOptions.status != null) queryParams.Add("status", Configuration.ApiClient.ParameterToString(searchOptions.status)); // query parameter
+            }
 
-            
-    
             // make the HTTP request
             IRestResponse response = (IRestResponse) Configuration.ApiClient.CallApi(path_, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, pathParams);
 
@@ -486,25 +497,26 @@ namespace DocuSign.eSign.Api
                 (FolderItemsResponse) Configuration.ApiClient.Deserialize(response, typeof(FolderItemsResponse)));
             
         }
-    
+
         /// <summary>
         /// Gets a list of the envelopes in the specified folder. Retrieves a list of the envelopes in the specified folder. You can narrow the query by specifying search criteria in the query string parameters.
         /// </summary>
- 	    ///<param name="accountId">The external account number (int) or account ID Guid.</param><param name="folderId">The ID of the folder being accessed.</param>
-		/// <returns>7Task of FolderItemsResponse</returns>
-        public async System.Threading.Tasks.Task<FolderItemsResponse> ListItemsAsync (string accountId, string folderId)
+        ///<param name="accountId">The external account number (int) or account ID Guid.</param><param name="folderId">The ID of the folder being accessed.</param>
+        /// <param name="searchOptions">Optional search options to return filtered collection of envelopes.</param>
+        /// <returns>7Task of FolderItemsResponse</returns>
+        public async System.Threading.Tasks.Task<FolderItemsResponse> ListItemsAsync (string accountId, string folderId, FoldersApi.SearchOptions searchOptions = null)
         {
-             ApiResponse<FolderItemsResponse> response = await ListItemsAsyncWithHttpInfo(accountId, folderId);
+             ApiResponse<FolderItemsResponse> response = await ListItemsAsyncWithHttpInfo(accountId, folderId, searchOptions);
              return response.Data;
-
         }
 
-        /// <summary>
-        /// Gets a list of the envelopes in the specified folder. Retrieves a list of the envelopes in the specified folder. You can narrow the query by specifying search criteria in the query string parameters.
-        /// </summary>
-	    ///<param name="accountId">The external account number (int) or account ID Guid.</param><param name="folderId">The ID of the folder being accessed.</param>
-		/// <returns>8Task of ApiResponse (FolderItemsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FolderItemsResponse>> ListItemsAsyncWithHttpInfo (string accountId, string folderId)
+        ///  <summary>
+        ///  Gets a list of the envelopes in the specified folder. Retrieves a list of the envelopes in the specified folder. You can narrow the query by specifying search criteria in the query string parameters.
+        ///  </summary>
+        /// <param name="accountId">The external account number (int) or account ID Guid.</param><param name="folderId">The ID of the folder being accessed.</param>
+        /// <param name="searchOptions">Optional search options to return filtered collection of envelopes.</param>
+        /// <returns>8Task of ApiResponse (FolderItemsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<FolderItemsResponse>> ListItemsAsyncWithHttpInfo (string accountId, string folderId, FoldersApi.SearchOptions searchOptions = null)
         {
             // verify the required parameter 'accountId' is set
             if (accountId == null) throw new ApiException(400, "Missing required parameter 'accountId' when calling ListItems");
@@ -534,18 +546,22 @@ namespace DocuSign.eSign.Api
             pathParams.Add("format", "json");
             if (accountId != null) pathParams.Add("accountId", Configuration.ApiClient.ParameterToString(accountId)); // path parameter
             if (folderId != null) pathParams.Add("folderId", Configuration.ApiClient.ParameterToString(folderId)); // path parameter
-            
 
-						
-			
-			
-
+            //based on https://www.docusign.com/p/RESTAPIGuide/RESTAPIGuide.htm#REST API References/Get Folder Envelope List.htm%3FTocPath%3DREST%2520API%2520References%7C_____97
+            if (searchOptions != null)
+            {
+                if (searchOptions.includeRecipients != null) queryParams.Add("include_recipients", Configuration.ApiClient.ParameterToString(searchOptions.includeRecipients)); // query parameter
+                if (searchOptions.all != null) queryParams.Add("all", Configuration.ApiClient.ParameterToString(searchOptions.all)); // query parameter
+                if (searchOptions.order != null) queryParams.Add("order", Configuration.ApiClient.ParameterToString(searchOptions.order)); // query parameter
+                if (searchOptions.count != null) queryParams.Add("count", Configuration.ApiClient.ParameterToString(searchOptions.count)); // query parameter
+                if (searchOptions.startPosition != null) queryParams.Add("start_position", Configuration.ApiClient.ParameterToString(searchOptions.startPosition)); // query parameter
+                if (searchOptions.fromDate != null) queryParams.Add("from_date", Configuration.ApiClient.ParameterToString(searchOptions.fromDate)); // query parameter
+                if (searchOptions.toDate != null) queryParams.Add("to_date", Configuration.ApiClient.ParameterToString(searchOptions.toDate)); // query parameter
+                if (searchOptions.orderBy != null) queryParams.Add("order_by", Configuration.ApiClient.ParameterToString(searchOptions.orderBy)); // query parameter
+                if (searchOptions.searchText != null) queryParams.Add("search_text", Configuration.ApiClient.ParameterToString(searchOptions.searchText)); // query parameter
+                if (searchOptions.status != null) queryParams.Add("status", Configuration.ApiClient.ParameterToString(searchOptions.status)); // query parameter
+            }
             
-            
-            
-
-            
-
             // make the HTTP request
             IRestResponse response = (IRestResponse) await Configuration.ApiClient.CallApiAsync(path_, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, pathParams);
 
@@ -751,7 +767,12 @@ namespace DocuSign.eSign.Api
 				
 			/// Specifies the property used to sort the list. Valid values are: `action_required`, `created`, `completed`, `sent`, `signer_list`, `status`, or `subject`. 
 			public string orderBy {get; set;}
-			
+
+            /// Specifies a search query used to return all envelopes that contains provided text.
+            public string searchText { get; set; }
+
+            /// Specifies the status of the envelopes used to filter the list.
+            public string status { get; set; }
 		}
 		
 		
@@ -819,8 +840,7 @@ namespace DocuSign.eSign.Api
 				if (options.fromDate != null) queryParams.Add("from_date", Configuration.ApiClient.ParameterToString(options.fromDate)); // query parameter
 				if (options.toDate != null) queryParams.Add("to_date", Configuration.ApiClient.ParameterToString(options.toDate)); // query parameter
 				if (options.orderBy != null) queryParams.Add("order_by", Configuration.ApiClient.ParameterToString(options.orderBy)); // query parameter
-				
-			}
+            }
 
             
             
