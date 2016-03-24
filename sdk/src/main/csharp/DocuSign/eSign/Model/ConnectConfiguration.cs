@@ -38,7 +38,9 @@ namespace DocuSign.eSign.Model
         public string name { get; set; }
         public string soapNamespace { get; set; }
 
-        public ConnectConfiguration(string name, string url, string envelopeevents = "", string recipientevents = "")
+        public ConnectConfiguration(string name, string url,
+            string envelopeevents = "Sent, Delivered, Completed, Declined, Voided",
+            string recipientevents = "Sent, Delivered, Completed, Declined, AuthenticationFailed, AutoResponded")
         {
             this.name = name;
             this.urlToPublishTo = url;
