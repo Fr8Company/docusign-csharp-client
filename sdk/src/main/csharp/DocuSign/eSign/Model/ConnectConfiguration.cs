@@ -19,24 +19,24 @@ namespace DocuSign.eSign.Model
         public string connectId { get; set; }
         public string configurationType { get; set; }
         public string urlToPublishTo { get; set; }
-        public string allowEnvelopePublish { get; set; } = "true";
-        public string enableLog { get; set; } = "true";
-        public string includeDocuments { get; set; } = "false";
+        public string allowEnvelopePublish { get; set; }
+        public string enableLog { get; set; }
+        public string includeDocuments { get; set; }
         public string includeCertificateOfCompletion { get; set; }
-        public string requiresAcknowledgement { get; set; } = "false";
-        public string signMessageWithX509Certificate { get; set; } = "false";
-        public string useSoapInterface { get; set; } = "false";
-        public string includeTimeZoneInformation { get; set; } = "false";
-        public string includeEnvelopeVoidReason { get; set; } = "true";
-        public string includeSenderAccountasCustomField { get; set; } = "true";
+        public string requiresAcknowledgement { get; set; }
+        public string signMessageWithX509Certificate { get; set; }
+        public string useSoapInterface { get; set; }
+        public string includeTimeZoneInformation { get; set; }
+        public string includeEnvelopeVoidReason { get; set; }
+        public string includeSenderAccountasCustomField { get; set; }
         public string envelopeEvents { get; set; }
         public string recipientEvents { get; set; }
         public string userIds { get; set; }
-        public string allUsers { get; set; } = "true";
+        public string allUsers { get; set; }
         public string includeCertSoapHeader { get; set; }
-        public string includeDocumentFields { get; set; } = "true";
+        public string includeDocumentFields { get; set; }
         public string name { get; set; }
-        public string soapNamespace { get; set; } = "";
+        public string soapNamespace { get; set; }
 
         public ConnectConfiguration(string name, string url, string envelopeevents = "", string recipientevents = "")
         {
@@ -44,6 +44,18 @@ namespace DocuSign.eSign.Model
             this.urlToPublishTo = url;
             this.envelopeEvents = envelopeEvents;
             this.recipientEvents = recipientEvents;
+
+            allowEnvelopePublish = "true";
+            enableLog = "true";
+            includeDocuments = "false";
+            requiresAcknowledgement = "false";
+            signMessageWithX509Certificate = "false";
+            useSoapInterface = "false";
+            includeTimeZoneInformation = "false";
+            includeEnvelopeVoidReason = "true";
+            includeSenderAccountasCustomField = "true";
+            allUsers = "true";
+            includeDocumentFields = "true";
         }
     }
 
