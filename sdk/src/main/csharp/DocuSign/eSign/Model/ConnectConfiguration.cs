@@ -49,7 +49,7 @@ namespace DocuSign.eSign.Model
 
             allowEnvelopePublish = "true";
             enableLog = "true";
-            includeDocuments = "true";
+            includeDocuments = "false";
             requiresAcknowledgement = "false";
             signMessageWithX509Certificate = "false";
             useSoapInterface = "false";
