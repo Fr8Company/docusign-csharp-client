@@ -7273,16 +7273,17 @@ namespace DocuSign.eSign.Api
             pathParams.Add("format", "json");
             if (accountId != null) pathParams.Add("accountId", Configuration.ApiClient.ParameterToString(accountId)); // path parameter
             if (envelopeId != null) pathParams.Add("envelopeId", Configuration.ApiClient.ParameterToString(envelopeId)); // path parameter
-            
-			
-			
 
-            
-            
-            
+            queryParams.Add("include_tabs", "true");
+            queryParams.Add("include_extended", "true");
 
-            
-    
+
+
+
+
+
+
+
             // make the HTTP request
             IRestResponse response = (IRestResponse) Configuration.ApiClient.CallApi(path_, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, pathParams);
 
